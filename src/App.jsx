@@ -21,8 +21,9 @@ const CheckboxExample = () => {
         control={ 
                 <Checkbox 
                     checked={checked} // Make MUI <Checkbox /> a controlled component
-                    icon={<DeleteIcon />}      // Icon when unchecked
-                    checkedIcon={<SaveIcon />} // Icon when checked
+                    icon={<SaveIcon />}        // Icon appears gray
+                    checkedIcon={<SaveIcon />} // When checked icon becomes blue (primary color)
+                    // checkedIcon={<DeleteIcon />} // Icon when checked
                     onChange={(e)=>setChecked(e.target.checked)} // Update checked state whenever user toggles checkbox
                     inputProps={{ // Add an accessible label for screen readers
                       'aria-label':'secondary checkbox' 
