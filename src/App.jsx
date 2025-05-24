@@ -23,7 +23,9 @@ function App() {
     >
       <Button 
         size='large' // Set button size to large
-        disabled // Disable button
+        style={{ // Override MUI styles
+                fontSize: 24 
+              }}
         variant='contained' 
         /* variant="contained" means:
           The button has a filled background (usually your theme’s primary color)
