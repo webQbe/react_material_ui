@@ -5,6 +5,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import SaveIcon from '@mui/icons-material/Save'; // Import "Save" icon from MUI Icons package
 import DeleteIcon from '@mui/icons-material/Delete';  // Import "Delete" icon
 import Checkbox from '@mui/material/Checkbox';  // Import "Checkbox" icon
+import FormControlLabel from '@mui/material/FormControlLabel'; 
 import './App.css';
 
 const CheckboxExample = () => {
@@ -13,12 +14,21 @@ const CheckboxExample = () => {
   const [checked, setChecked] = useState(true);
 
   return (
-    <div>
-      <Checkbox 
-          checked={checked} // Make MUI <Checkbox /> a controlled component
-          onChange={(e)=>setChecked(e.target.checked)} // Update checked state whenever user toggles checkbox
-      /> 
-    </div>
+
+    <FormControlLabel // Wrap <Checkbox> and label, make both clickable, & ensure proper alignment + spacing
+        
+        // Pass controlled <Checkbox> as control prop
+        control={ 
+                <Checkbox 
+                    checked={checked} // Make MUI <Checkbox /> a controlled component
+                    onChange={(e)=>setChecked(e.target.checked)} // Update checked state whenever user toggles checkbox
+                    inputProps={{ // Add an accessible label for screen readers
+                      'aria-label':'secondary checkbox' 
+                    }}
+                />
+              }
+                label="Testing Checkbox" // This text appears to the right of the checkbox
+    />
   )
 }
 
