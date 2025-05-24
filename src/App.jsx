@@ -4,7 +4,23 @@ import Button from '@mui/material/Button'; // Renders a Material-styled button
 import ButtonGroup from '@mui/material/ButtonGroup'; 
 import SaveIcon from '@mui/icons-material/Save'; // Import "Save" icon from MUI Icons package
 import DeleteIcon from '@mui/icons-material/Delete';  // Import "Delete" icon
+import Checkbox from '@mui/material/Checkbox';  // Import "Checkbox" icon
 import './App.css';
+
+const CheckboxExample = () => {
+
+  // Create state variable checked that is initially true (checkbox is checked by default)
+  const [checked, setChecked] = useState(true);
+
+  return (
+    <div>
+      <Checkbox 
+          checked={checked} // Make MUI <Checkbox /> a controlled component
+          onChange={(e)=>setChecked(e.target.checked)} // Update checked state whenever user toggles checkbox
+      /> 
+    </div>
+  )
+}
 
 // Creates custom MUI theme
 const theme = createTheme({
@@ -21,9 +37,14 @@ function App() {
 
   return (
    <div className="App">
+
     <ThemeProvider 
       theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
     >
+
+      {/* Show functional checkbox */}
+      <CheckboxExample />
+
       <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
         variant='contained' // All buttons look like raised/filled buttons
         color='primary'     // Applies theme's primary color (blue) to all buttons in the group
