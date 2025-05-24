@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button'; // Renders a Material-styled button
+import ButtonGroup from '@mui/material/ButtonGroup'; 
 import SaveIcon from '@mui/icons-material/Save'; // Import "Save" icon from MUI Icons package
-import './App.css'
+import DeleteIcon from '@mui/icons-material/Delete';  // Import "Delete" icon
+import './App.css';
 
 // Creates custom MUI theme
 const theme = createTheme({
@@ -22,20 +24,24 @@ function App() {
     <ThemeProvider 
       theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
     >
-      <Button 
-        startIcon={<SaveIcon />} // render Save icon before button text 
-        // endIcon={<SaveIcon />}  // render Save icon after button text 
-        size='large' // Set button size to large
-        variant='contained' 
-        /* variant="contained" means:
-          The button has a filled background (usually your theme’s primary color)
-          It has elevation (drop shadow) to distinguish it from the background. 
-          Behavior: Standard hover, focus, and ripple effects from MUI */
-
-        color='secondary' // Set alternate theme color (By default, it’s purple, but it can be customized.)
+      <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
+        variant='contained' // All buttons look like raised/filled buttons
+        color='primary'     // Applies theme's primary color (blue) to all buttons in the group
       >
-        Hello World
-      </Button>
+        {/* Render connected Save & Discard buttons side by side */}
+        <Button 
+          startIcon={<SaveIcon />} // Render Save icon before button text 
+        >
+          Save
+        </Button>
+
+        <Button 
+          startIcon={<DeleteIcon />} // Render Delete icon before button text 
+        >
+          Discard
+        </Button>
+
+      </ButtonGroup>
     </ThemeProvider>
    </div>
   )
