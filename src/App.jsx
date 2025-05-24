@@ -22,6 +22,8 @@ function App() {
       theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
     >
       <Button 
+        href='#' // Add a link
+        onClick={ () => alert('hello') } // Add onClick handler
         variant='contained' 
         /* variant="contained" means:
           The button has a filled background (usually your theme’s primary color)
