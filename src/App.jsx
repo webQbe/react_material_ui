@@ -23,6 +23,7 @@ function App() {
     >
       <Button 
         size='large' // Set button size to large
+        disabled // Disable button
         variant='contained' 
         /* variant="contained" means:
           The button has a filled background (usually your theme’s primary color)
