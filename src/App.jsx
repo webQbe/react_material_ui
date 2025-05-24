@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button'; // Renders a Material-styled button
+import SaveIcon from '@mui/icons-material/Save'; // Import "Save" icon from MUI Icons package
 import './App.css'
 
 // Creates custom MUI theme
@@ -22,10 +23,9 @@ function App() {
       theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
     >
       <Button 
+        startIcon={<SaveIcon />} // render Save icon before button text 
+        // endIcon={<SaveIcon />}  // render Save icon after button text 
         size='large' // Set button size to large
-        style={{ // Override MUI styles
-                fontSize: 24 
-              }}
         variant='contained' 
         /* variant="contained" means:
           The button has a filled background (usually your theme’s primary color)
