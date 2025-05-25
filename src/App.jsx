@@ -12,6 +12,9 @@ import { orange, green } from '@mui/material/colors';
 import 'fontsource-roboto'; // Imports the Roboto font locally
 import Typography from '@mui/material/Typography'; 
 import Container from '@mui/material/Container'; 
+import Paper from '@mui/material/Paper'; 
+import Grid from '@mui/material/Grid'; 
+
 import './App.css';
 
 const CheckboxExample = () => {
@@ -88,7 +91,7 @@ function App() {
             theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
           >
             {/* Render <h1> element by default  
-              Typography styling is controlled by the theme. */}
+                Typography styling is controlled by the theme. */}
             <Typography 
               variant='h1'  // variants: 'h1', 'h2', 'body1', 'subtitle1', etc
             >
@@ -116,6 +119,27 @@ function App() {
               Test Styled Button
             </Button>
 
+            {/* Show 3 small Paper components in a centered row, with spacing between them  */}
+            <Grid container           // defines flexbox row that can contain Grid items
+              spacing={2}             // Adds spacing between the items
+              justifyContent="center" // Centers the items horizontally.
+            >
+              <Grid item> {/* Acts as an item */}
+                <Paper /*  MUI component with an elevated look (a shadow) */
+                  style={{ height:75, width:50 }} // fixed dimensions 
+                /> 
+              </Grid>
+
+              <Grid item>
+                <Paper style={{ height:75, width:50 }} />
+              </Grid>
+
+              <Grid item>
+                <Paper style={{ height:75, width:50 }} />
+              </Grid>
+
+            </Grid>      
+           
             {/* Show TextField */}
             <TextField 
               variant='filled'            // Renders field with filled style
@@ -127,6 +151,7 @@ function App() {
                 input: (theme) => ({
                   color: theme.palette.customText.main, // use custom color
                 }),
+                mt: 3 // Add 24px top margin
               }}
             />
 
