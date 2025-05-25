@@ -58,9 +58,14 @@ function App() {
     <ThemeProvider 
       theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
     >
-      
+
     {/* Show TextField */}
       <TextField 
+        variant='filled'            // Renders field with filled style
+        color='secondary'           // Applies theme's secondary font color on focus
+        type='email'                // Sets the input type to email (others 'time', 'date')
+        placeholder='test@test.com' // Shows placeholder text when the field is empty and focused
+        label='Email'               // Display floating label over input. Float up when user types or field is focused.
         sx={{
           input: (theme) => ({
             color: theme.palette.customText.main, // use custom color
@@ -68,7 +73,7 @@ function App() {
         }}
       />
 
-      <br />
+    <br />
 
       {/* Show functional checkbox */}
       <CheckboxExample />
