@@ -8,6 +8,7 @@ import Checkbox from '@mui/material/Checkbox';  // Import "Checkbox" icon
 import FormControlLabel from '@mui/material/FormControlLabel'; 
 import TextField from '@mui/material/TextField'; 
 /* @mui/styles is deprecated in MUI v5+  */
+import { orange, green } from '@mui/material/colors'; 
 import './App.css';
 
 const CheckboxExample = () => {
@@ -39,11 +40,13 @@ const CheckboxExample = () => {
 
 // Creates custom MUI theme
 const theme = createTheme({
-  // Define palette.secondary.main
   palette: {
+    primary: {
+      main: orange[400], // Sets primary color to a medium orange
+    },
     secondary: {
-      main: '#f44336', // red
-      /* Override the default purple secondary color in MUI */
+      main: green[400], // Sets secondary color to a medium green
+      /* Override the default color in MUI */
     },
     customText: {
       main: '#d32f2f', // custom red
