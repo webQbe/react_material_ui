@@ -19,7 +19,7 @@
     - Open terminal and run `npm install`
     - Install packages:
         ```
-        npm i @mui/material @emotion/react @emotion/styled @mui/icons-material
+        npm i @mui/material @emotion/react @emotion/styled @mui/icons-material fontsource-roboto
         ```
 6. Delete: `public/vite.svg`, `src/assets`, `src/index.css`
     1. Remove `import './index.css'` from `src/main.jsx`

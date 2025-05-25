@@ -9,6 +9,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import TextField from '@mui/material/TextField'; 
 /* @mui/styles is deprecated in MUI v5+  */
 import { orange, green } from '@mui/material/colors'; 
+import 'fontsource-roboto'; // Imports the Roboto font locally
+import Typography from '@mui/material/Typography'; 
 import './App.css';
 
 const CheckboxExample = () => {
@@ -52,6 +54,13 @@ const theme = createTheme({
       main: '#d32f2f', // custom red
     },
   },
+  typography: { // Theme-Driven Typography
+
+      h1: {
+        fontSize: '3rem',
+        fontWeight: 700,
+      },
+  },
 });
 
 function App() {
@@ -62,6 +71,14 @@ function App() {
       <ThemeProvider 
         theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
       >
+
+        {/* Render <h1> element by default  
+          Typography styling is controlled by the theme. */}
+        <Typography 
+          variant='h1'  // variants: 'h1', 'h2', 'body1', 'subtitle1', etc
+        >
+          Welcome to MUI
+        </Typography>
 
         {/* Show Styled Button */}
         <Button
