@@ -6,6 +6,7 @@ import SaveIcon from '@mui/icons-material/Save'; // Import "Save" icon from MUI 
 import DeleteIcon from '@mui/icons-material/Delete';  // Import "Delete" icon
 import Checkbox from '@mui/material/Checkbox';  // Import "Checkbox" icon
 import FormControlLabel from '@mui/material/FormControlLabel'; 
+import TextField from '@mui/material/TextField'; 
 import './App.css';
 
 const CheckboxExample = () => {
@@ -43,6 +44,9 @@ const theme = createTheme({
       main: '#f44336', // red
       /* Override the default purple secondary color in MUI */
     },
+    customText: {
+      main: '#d32f2f', // custom red
+    },
   },
 });
 
@@ -54,10 +58,21 @@ function App() {
     <ThemeProvider 
       theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
     >
+      
+    {/* Show TextField */}
+      <TextField 
+        sx={{
+          input: (theme) => ({
+            color: theme.palette.customText.main, // use custom color
+          }),
+        }}
+      />
+
+      <br />
 
       {/* Show functional checkbox */}
       <CheckboxExample />
-
+      <br />
       <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
         variant='contained' // All buttons look like raised/filled buttons
         color='primary'     // Applies theme's primary color (blue) to all buttons in the group
