@@ -7,6 +7,7 @@ import DeleteIcon from '@mui/icons-material/Delete';  // Import "Delete" icon
 import Checkbox from '@mui/material/Checkbox';  // Import "Checkbox" icon
 import FormControlLabel from '@mui/material/FormControlLabel'; 
 import TextField from '@mui/material/TextField'; 
+/* @mui/styles is deprecated in MUI v5+  */
 import './App.css';
 
 const CheckboxExample = () => {
@@ -58,6 +59,20 @@ function App() {
       <ThemeProvider 
         theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
       >
+
+        {/* Show Styled Button */}
+        <Button
+          sx={{
+            background: 'linear-gradient(45deg, #FE6B8B, #FF8E53)', // Sets a diagonal gradient background from pink to orange.
+            border: 0,
+            marginBottom: 2,  // 2 is a spacing unit (MUI's spacing * 8px), so it's 16px
+            borderRadius: 2,
+            color: 'white',
+            padding: '5px 30px', // Adds vertical and horizontal padding
+          }}
+        >
+          Test Styled Button
+        </Button>
 
         {/* Show TextField */}
         <TextField 
