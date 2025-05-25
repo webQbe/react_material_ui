@@ -54,49 +54,48 @@ function App() {
 
   return (
    <div className="App">
-
-    <ThemeProvider 
-      theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
-    >
-
-    {/* Show TextField */}
-      <TextField 
-        variant='filled'            // Renders field with filled style
-        color='secondary'           // Applies theme's secondary font color on focus
-        type='email'                // Sets the input type to email (others 'time', 'date')
-        placeholder='test@test.com' // Shows placeholder text when the field is empty and focused
-        label='Email'               // Display floating label over input. Float up when user types or field is focused.
-        sx={{
-          input: (theme) => ({
-            color: theme.palette.customText.main, // use custom color
-          }),
-        }}
-      />
-
-    <br />
-
-      {/* Show functional checkbox */}
-      <CheckboxExample />
-      <br />
-      <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
-        variant='contained' // All buttons look like raised/filled buttons
-        color='primary'     // Applies theme's primary color (blue) to all buttons in the group
+    <div className="App-header">
+      <ThemeProvider 
+        theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
       >
-        {/* Render connected Save & Discard buttons side by side */}
-        <Button 
-          startIcon={<SaveIcon />} // Render Save icon before button text 
-        >
-          Save
-        </Button>
 
-        <Button 
-          startIcon={<DeleteIcon />} // Render Delete icon before button text 
-        >
-          Discard
-        </Button>
+        {/* Show TextField */}
+        <TextField 
+          variant='filled'            // Renders field with filled style
+          color='secondary'           // Applies theme's secondary font color on focus
+          type='email'                // Sets the input type to email (others 'time', 'date')
+          placeholder='test@test.com' // Shows placeholder text when the field is empty and focused
+          label='Email'               // Display floating label over input. Float up when user types or field is focused.
+          sx={{
+            input: (theme) => ({
+              color: theme.palette.customText.main, // use custom color
+            }),
+          }}
+        />
 
-      </ButtonGroup>
-    </ThemeProvider>
+        {/* Show functional checkbox */}
+        <CheckboxExample />
+
+        <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
+          variant='contained' // All buttons look like raised/filled buttons
+          color='primary'     // Applies theme's primary color (blue) to all buttons in the group
+        >
+          {/* Render connected Save & Discard buttons side by side */}
+          <Button 
+            startIcon={<SaveIcon />} // Render Save icon before button text 
+          >
+            Save
+          </Button>
+
+          <Button 
+            startIcon={<DeleteIcon />} // Render Delete icon before button text 
+          >
+            Discard
+          </Button>
+
+        </ButtonGroup>
+      </ThemeProvider>
+    </div>
    </div>
   )
 }
