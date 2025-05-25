@@ -15,8 +15,8 @@ import './App.css';
 
 const CheckboxExample = () => {
 
-  // Create state variable checked that is initially true (checkbox is checked by default)
-  const [checked, setChecked] = useState(true);
+  // Create state variable checked that is initially false (checkbox is unchecked by default)
+  const [checked, setChecked] = useState(false);
 
   return (
 
@@ -47,7 +47,7 @@ const theme = createTheme({
       main: orange[400], // Sets primary color to a medium orange
     },
     secondary: {
-      main: green[400], // Sets secondary color to a medium green
+      main: green[800], // Sets secondary color to a medium green
       /* Override the default color in MUI */
     },
     customText: {
@@ -75,7 +75,6 @@ function App() {
       <ThemeProvider 
         theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
       >
-
         {/* Render <h1> element by default  
           Typography styling is controlled by the theme. */}
         <Typography 
@@ -94,7 +93,7 @@ function App() {
         {/* Show Styled Button */}
         <Button
           sx={{
-            background: 'linear-gradient(45deg, #FE6B8B, #FF8E53)', // Sets a diagonal gradient background from pink to orange.
+            background: 'linear-gradient(45deg,rgb(24, 23, 23),rgb(163, 163, 160))', // Sets a diagonal gradient background from pink to orange.
             border: 0,
             marginBottom: 2,  // 2 is a spacing unit (MUI's spacing * 8px), so it's 16px
             borderRadius: 2,
