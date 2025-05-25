@@ -60,6 +60,10 @@ const theme = createTheme({
         fontSize: '3rem',
         fontWeight: 700,
       },
+
+      subtitle1: {
+        fontWeight: 500, 
+      }
   },
 });
 
@@ -78,6 +82,13 @@ function App() {
           variant='h1'  // variants: 'h1', 'h2', 'body1', 'subtitle1', etc
         >
           Welcome to MUI
+        </Typography>
+
+        <Typography 
+          variant='subtitle1' 
+          component='div' // Render as a <div> instead of default tag for subtitle1 (usually <h6> or <p>)
+        >
+          Learn how to use Material UI
         </Typography>
 
         {/* Show Styled Button */}
