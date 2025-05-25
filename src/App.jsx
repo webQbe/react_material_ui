@@ -11,6 +11,7 @@ import TextField from '@mui/material/TextField';
 import { orange, green } from '@mui/material/colors'; 
 import 'fontsource-roboto'; // Imports the Roboto font locally
 import Typography from '@mui/material/Typography'; 
+import Container from '@mui/material/Container'; 
 import './App.css';
 
 const CheckboxExample = () => {
@@ -71,77 +72,89 @@ function App() {
 
   return (
    <div className="App">
-    <div className="App-header">
-      <ThemeProvider 
-        theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
+      <Container      // centers content horizontally & applies consistent padding
+        maxWidth='xs' // content will be constrained to extra-small width breakpoint
+        /* maxWidth Values:
+            "xs" < 444px
+            "sm" <	600px
+            "md" <	900px
+            "lg" <	1200px
+            "xl" <  1536px
+            false	  No max-width (fluid layout)
+        */
       >
-        {/* Render <h1> element by default  
-          Typography styling is controlled by the theme. */}
-        <Typography 
-          variant='h1'  // variants: 'h1', 'h2', 'body1', 'subtitle1', etc
-        >
-          Welcome to MUI
-        </Typography>
-
-        <Typography 
-          variant='subtitle1' 
-          component='div' // Render as a <div> instead of default tag for subtitle1 (usually <h6> or <p>)
-        >
-          Learn how to use Material UI
-        </Typography>
-
-        {/* Show Styled Button */}
-        <Button
-          sx={{
-            background: 'linear-gradient(45deg,rgb(24, 23, 23),rgb(163, 163, 160))', // Sets a diagonal gradient background from pink to orange.
-            border: 0,
-            marginBottom: 2,  // 2 is a spacing unit (MUI's spacing * 8px), so it's 16px
-            borderRadius: 2,
-            color: 'white',
-            padding: '5px 30px', // Adds vertical and horizontal padding
-          }}
-        >
-          Test Styled Button
-        </Button>
-
-        {/* Show TextField */}
-        <TextField 
-          variant='filled'            // Renders field with filled style
-          color='secondary'           // Applies theme's secondary font color on focus
-          type='email'                // Sets the input type to email (others 'time', 'date')
-          placeholder='test@test.com' // Shows placeholder text when the field is empty and focused
-          label='Email'               // Display floating label over input. Float up when user types or field is focused.
-          sx={{
-            input: (theme) => ({
-              color: theme.palette.customText.main, // use custom color
-            }),
-          }}
-        />
-
-        {/* Show functional checkbox */}
-        <CheckboxExample />
-
-        <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
-          variant='contained' // All buttons look like raised/filled buttons
-          color='primary'     // Applies theme's primary color (blue) to all buttons in the group
-        >
-          {/* Render connected Save & Discard buttons side by side */}
-          <Button 
-            startIcon={<SaveIcon />} // Render Save icon before button text 
+        <div className="App-header">
+          <ThemeProvider 
+            theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
           >
-            Save
-          </Button>
+            {/* Render <h1> element by default  
+              Typography styling is controlled by the theme. */}
+            <Typography 
+              variant='h1'  // variants: 'h1', 'h2', 'body1', 'subtitle1', etc
+            >
+              Welcome to MUI
+            </Typography>
 
-          <Button 
-            startIcon={<DeleteIcon />} // Render Delete icon before button text 
-          >
-            Discard
-          </Button>
+            <Typography 
+              variant='subtitle1' 
+              component='div' // Render as a <div> instead of default tag for subtitle1 (usually <h6> or <p>)
+            >
+              Learn how to use Material UI
+            </Typography>
 
-        </ButtonGroup>
-      </ThemeProvider>
+            {/* Show Styled Button */}
+            <Button
+              sx={{
+                background: 'linear-gradient(45deg,rgb(24, 23, 23),rgb(163, 163, 160))', // Sets a diagonal gradient background from pink to orange.
+                border: 0,
+                marginBottom: 2,  // 2 is a spacing unit (MUI's spacing * 8px), so it's 16px
+                borderRadius: 2,
+                color: 'white',
+                padding: '5px 30px', // Adds vertical and horizontal padding
+              }}
+            >
+              Test Styled Button
+            </Button>
+
+            {/* Show TextField */}
+            <TextField 
+              variant='filled'            // Renders field with filled style
+              color='secondary'           // Applies theme's secondary font color on focus
+              type='email'                // Sets the input type to email (others 'time', 'date')
+              placeholder='test@test.com' // Shows placeholder text when the field is empty and focused
+              label='Email'               // Display floating label over input. Float up when user types or field is focused.
+              sx={{
+                input: (theme) => ({
+                  color: theme.palette.customText.main, // use custom color
+                }),
+              }}
+            />
+
+            {/* Show functional checkbox */}
+            <CheckboxExample />
+
+            <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
+              variant='contained' // All buttons look like raised/filled buttons
+              color='primary'     // Applies theme's primary color (blue) to all buttons in the group
+            >
+              {/* Render connected Save & Discard buttons side by side */}
+              <Button 
+                startIcon={<SaveIcon />} // Render Save icon before button text 
+              >
+                Save
+              </Button>
+
+              <Button 
+                startIcon={<DeleteIcon />} // Render Delete icon before button text 
+              >
+                Discard
+              </Button>
+
+            </ButtonGroup>
+          </ThemeProvider>
+        </div>
+      </Container>
     </div>
-   </div>
   )
 }
 
