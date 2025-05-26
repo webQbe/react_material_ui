@@ -11,6 +11,10 @@ import TextField from '@mui/material/TextField';
 import { orange, green } from '@mui/material/colors'; 
 import 'fontsource-roboto'; // Imports the Roboto font locally
 import Typography from '@mui/material/Typography'; 
+import Container from '@mui/material/Container'; 
+import Paper from '@mui/material/Paper'; 
+import Grid from '@mui/material/Grid'; 
+
 import './App.css';
 
 const CheckboxExample = () => {
@@ -70,78 +74,117 @@ const theme = createTheme({
 function App() {
 
   return (
-   <div className="App">
-    <div className="App-header">
-      <ThemeProvider 
-        theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
-      >
-        {/* Render <h1> element by default  
-          Typography styling is controlled by the theme. */}
-        <Typography 
-          variant='h1'  // variants: 'h1', 'h2', 'body1', 'subtitle1', etc
-        >
-          Welcome to MUI
-        </Typography>
+  <ThemeProvider 
+            theme={theme} /* Wrap your component tree & provide custom theme to all MUI components inside it */
+  >
+    <Container      // centers content horizontally & applies consistent padding
+          maxWidth='xs' // content will be constrained to extra-small (444px) width breakpoint
+          /* maxWidth Values:
+              "xs" < 444px
+              "sm" <	600px
+              "md" <	900px
+              "lg" <	1200px
+              "xl" <  1536px
+              false	  No max-width (fluid layout)
+          */
+    >
+      <div className="App">
+          <header className="App-header">
 
-        <Typography 
-          variant='subtitle1' 
-          component='div' // Render as a <div> instead of default tag for subtitle1 (usually <h6> or <p>)
-        >
-          Learn how to use Material UI
-        </Typography>
+                {/* Render <h1> element by default  
+                    Typography styling is controlled by the theme. */}
+                <Typography 
+                  variant='h1'  // variants: 'h1', 'h2', 'body1', 'subtitle1', etc
+                >
+                  Welcome to MUI
+                </Typography>
 
-        {/* Show Styled Button */}
-        <Button
-          sx={{
-            background: 'linear-gradient(45deg,rgb(24, 23, 23),rgb(163, 163, 160))', // Sets a diagonal gradient background from pink to orange.
-            border: 0,
-            marginBottom: 2,  // 2 is a spacing unit (MUI's spacing * 8px), so it's 16px
-            borderRadius: 2,
-            color: 'white',
-            padding: '5px 30px', // Adds vertical and horizontal padding
-          }}
-        >
-          Test Styled Button
-        </Button>
+                <Typography 
+                  variant='subtitle1' 
+                  component='div' // Render as a <div> instead of default tag for subtitle1 (usually <h6> or <p>)
+                >
+                  Learn how to use Material UI
+                </Typography>
 
-        {/* Show TextField */}
-        <TextField 
-          variant='filled'            // Renders field with filled style
-          color='secondary'           // Applies theme's secondary font color on focus
-          type='email'                // Sets the input type to email (others 'time', 'date')
-          placeholder='test@test.com' // Shows placeholder text when the field is empty and focused
-          label='Email'               // Display floating label over input. Float up when user types or field is focused.
-          sx={{
-            input: (theme) => ({
-              color: theme.palette.customText.main, // use custom color
-            }),
-          }}
-        />
+                {/* Show Styled Button */}
+                <Button
+                  sx={{
+                    background: 'linear-gradient(45deg,rgb(24, 23, 23),rgb(163, 163, 160))', // Sets a diagonal gradient background from pink to orange.
+                    border: 0,
+                    marginBottom: 2,  // 2 is a spacing unit (MUI's spacing * 8px), so it's 16px
+                    borderRadius: 2,
+                    color: 'white',
+                    padding: '5px 30px', // Adds vertical and horizontal padding
+                  }}
+                >
+                  Test Styled Button
+                </Button>
 
-        {/* Show functional checkbox */}
-        <CheckboxExample />
+                {/* Show 3 small Paper components in a centered row, with spacing between them  */}
 
-        <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
-          variant='contained' // All buttons look like raised/filled buttons
-          color='primary'     // Applies theme's primary color (blue) to all buttons in the group
-        >
-          {/* Render connected Save & Discard buttons side by side */}
-          <Button 
-            startIcon={<SaveIcon />} // Render Save icon before button text 
-          >
-            Save
-          </Button>
+                <Grid container               // defines flexbox row that can contain Grid items
+                    spacing={2}               // Adds spacing between the items
+                    justifyContent="center"   // Centers the items horizontally
+                    style={{ width: '100%' }} // Make container span 100% of its parent's width
+                >
+                  <Grid item 
+                    size={{ xs: 3, // Item will be 25% wide on phones
+                            sm: 5  // Item will be 41.6% wide on tablets and up
+                          }}
+                  >
+                      <Paper style={{ height:75 }} />
+                  </Grid>
 
-          <Button 
-            startIcon={<DeleteIcon />} // Render Delete icon before button text 
-          >
-            Discard
-          </Button>
+                  <Grid item  size={{ xs: 3, sm: 5 }}>
+                      <Paper style={{ height:75 }} />
+                  </Grid>
 
-        </ButtonGroup>
-      </ThemeProvider>
-    </div>
-   </div>
+                  <Grid item  size={{ xs: 3, sm: 5 }}>
+                      <Paper style={{ height:75 }} />
+                  </Grid>
+
+                </Grid> 
+              
+                {/* Show TextField */}
+                <TextField 
+                  variant='filled'            // Renders field with filled style
+                  color='secondary'           // Applies theme's secondary font color on focus
+                  type='email'                // Sets the input type to email (others 'time', 'date')
+                  placeholder='test@test.com' // Shows placeholder text when the field is empty and focused
+                  label='Email'               // Display floating label over input. Float up when user types or field is focused.
+                  sx={{
+                    input: (theme) => ({
+                      color: theme.palette.customText.main, // use custom color
+                    }),
+                    mt: 3 // Add 24px top margin
+                  }}
+                />
+
+                {/* Show functional checkbox */}
+                <CheckboxExample />
+
+                <ButtonGroup // Group multiple <Button> components into single horizontal layout with uniform styling.
+                  variant='contained' // All buttons look like raised/filled buttons
+                  color='primary'     // Applies theme's primary color (blue) to all buttons in the group
+                >
+                  {/* Render connected Save & Discard buttons side by side */}
+                  <Button 
+                    startIcon={<SaveIcon />} // Render Save icon before button text 
+                  >
+                    Save
+                  </Button>
+
+                  <Button 
+                    startIcon={<DeleteIcon />} // Render Delete icon before button text 
+                  >
+                    Discard
+                  </Button>
+
+                </ButtonGroup> 
+          </header>
+      </div>
+    </Container>
+  </ThemeProvider>
   )
 }
 
