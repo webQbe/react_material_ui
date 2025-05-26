@@ -96,11 +96,12 @@ function App() {
     >
       <div className="App">
           <header className="App-header">
-
-            <AppBar>           {/* Top navigation bar, defaults to position="fixed" */}
-              <ToolBar>        {/* Provides standard spacing & alignment for elements like icons, titles, and buttons. */}
-                <IconButton>   {/* A button styled for displaying icons */}
-                  <MenuIcon /> {/* IconButton wraps the MenuIcon and makes it clickable */}
+            
+            {/* Top navigation bar, defaults to position="fixed" */}
+            <AppBar color='secondary'>  
+              <ToolBar>                 {/* Provides standard spacing & alignment for elements like icons, titles, and buttons. */}
+                <IconButton>            {/* A button styled for displaying icons */}
+                  <MenuIcon />          {/* IconButton wraps the MenuIcon and makes it clickable */}
                 </IconButton>
                 <Typography variant='h6'>
                   MUI Theming
