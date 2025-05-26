@@ -12,12 +12,14 @@ import { orange, green } from '@mui/material/colors';
 import 'fontsource-roboto'; // Imports the Roboto font locally
 import Typography from '@mui/material/Typography'; 
 import Container from '@mui/material/Container'; 
+
 import Paper from '@mui/material/Paper'; 
 import Grid from '@mui/material/Grid'; 
 
-import Container from '@mui/material/Container'; 
-import Paper from '@mui/material/Paper'; 
-import Grid from '@mui/material/Grid'; 
+import AppBar from '@mui/material/AppBar'; 
+import ToolBar from '@mui/material/Toolbar'; 
+import IconButton from '@mui/material/IconButton'; 
+import MenuIcon from '@mui/icons-material/Menu'; 
 
 import './App.css';
 
@@ -95,6 +97,20 @@ function App() {
       <div className="App">
           <header className="App-header">
 
+            <AppBar>           {/* Top navigation bar, defaults to position="fixed" */}
+              <ToolBar>        {/* Provides standard spacing & alignment for elements like icons, titles, and buttons. */}
+                <IconButton>   {/* A button styled for displaying icons */}
+                  <MenuIcon /> {/* IconButton wraps the MenuIcon and makes it clickable */}
+                </IconButton>
+                <Typography variant='h6'>
+                  MUI Theming
+                </Typography>
+                <Button sx={{ color: '#4d4b49' }}>
+                  Login
+                </Button>
+              </ToolBar>
+            </AppBar>
+
                 {/* Render <h1> element by default  
                     Typography styling is controlled by the theme. */}
                 <Typography 
@@ -131,7 +147,7 @@ function App() {
                     justifyContent="center"   // Centers the items horizontally
                     style={{ width: '100%' }} // Make container span 100% of its parent's width
                 >
-                  <Grid item 
+                  <Grid 
                     size={{ xs: 3, // Item will be 25% wide on phones
                             sm: 5  // Item will be 41.6% wide on tablets and up
                           }}
@@ -139,11 +155,11 @@ function App() {
                       <Paper style={{ height:75 }} />
                   </Grid>
 
-                  <Grid item  size={{ xs: 3, sm: 5 }}>
+                  <Grid  size={{ xs: 3, sm: 5 }}>
                       <Paper style={{ height:75 }} />
                   </Grid>
 
-                  <Grid item  size={{ xs: 3, sm: 5 }}>
+                  <Grid  size={{ xs: 3, sm: 5 }}>
                       <Paper style={{ height:75 }} />
                   </Grid>
 
