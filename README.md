@@ -1,9 +1,17 @@
 # React with Material UI (MUI)
+This repo is an adaptation of [Material UI React Tutorial](https://www.youtube.com/watch?v=vyJU9efvUtQ&list=PLillGF-RfqbY3c2r0htQyVbDJJoBFE6Rb&index=31&pp=iAQB) by Adrian Twarog. 
+
+I followed the tutorial to learn followings:
 - Creating **buttons**, **headers**, other components and apply **themes** with Material UI/MUI
 - Number of **pre-made components** are ready in MUI library for your website or app.
 - It is build on the MUI design docs by Google, these follow a number of architectures to make things look really good, in terms of **spacings**, **colors**, and **animations**. 
 - This is designed by the Google team to help build high quality experiences on **Android/iOS** and on the web.
 - MUI is one of the most popular **UI design** libraries 
+
+## What I changed
+- Removed deprecated `@mui/styles` import and used `sx={{...}}` to define styles.
+- Replaced deprecated attribute `justify="center"` with `justifyContent="center"`.
+
 
 ## Getting Started
 
@@ -33,3 +41,10 @@
     ```
     npm run dev 
     ``` 
+
+## Credits
+Original tutorial:  [Material UI React Tutorial](https://www.youtube.com/watch?v=vyJU9efvUtQ&list=PLillGF-RfqbY3c2r0htQyVbDJJoBFE6Rb&index=31&pp=iAQB) — Traversy Media.
+This repo includes my changes (noted above).
+
+## License
+MIT License
